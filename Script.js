@@ -124,3 +124,25 @@ const startGame = () => {
 };
 
 startButton.addEventListener("click", startGame);
+
+// realizamos una variable para almacenar los datos.
+var data = {
+  name: "Gutibel Games",
+  age: 24,
+  email: "gutierrezbellonahuel@gmail.com",
+};
+
+// Convertir los datos en una cadena JSON
+var jsonData = JSON.stringify(data);
+
+//Guardar los datos en el almacenamiento local
+localStorage.setItem("data", jsonData);
+
+// Obtener los datos del almacenamiento local
+var jsonData = localStorage.getItem("data");
+
+//Convertir la cadena JSON en un objeto JavaScript
+var data = JSON.parse(jsonData);
+
+//Imprime los datos
+console.log(data);
