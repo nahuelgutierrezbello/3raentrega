@@ -146,3 +146,42 @@ var data = JSON.parse(jsonData);
 
 //Imprime los datos
 console.log(data);
+
+const input = document.querySelector("input");
+input.addEventListener("change", () => {
+  // Obtener el valor de la entrada
+  const value = input.value;
+
+  // Crear un nuevo elemento
+  const newElement = document.createElement("div");
+  newElement.textContent = value;
+
+  // Anexar el nuevo elemento al DOM
+  document.body.appendChild(newElement);
+});
+
+const file = document.querySelector('input[type="file"]');
+const url = "https://github.com/nahuelgutierrezbello";
+
+// Realizar una solicitud de recuperación con el archivo
+const responsePromise = fetch(url, {
+  method: "POST",
+  body: file,
+});
+
+// Manejar la respuesta
+responsePromise
+  .then((response) => {
+    // La solicitud se ha realizado correctamente
+    console.log("The file was uploaded successfully");
+  })
+  .catch((error) => {
+    // Error en la solicitud
+    console.log(error);
+  });
+
+const fs = require("fs");
+const data = fs.readFileSync("data.json", "utf8");
+const jsonData = JSON.parse(data);
+
+console.log(jsonData);
