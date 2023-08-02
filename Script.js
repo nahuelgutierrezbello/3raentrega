@@ -161,7 +161,7 @@ input.addEventListener("change", () => {
 });
 
 const file = document.querySelector('input[type="file"]');
-const url = "https://github.com/nahuelgutierrezbello";
+const url = "";
 
 // Realizar una solicitud de recuperación con el archivo
 const responsePromise = fetch(url, {
