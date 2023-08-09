@@ -125,13 +125,6 @@ const startGame = () => {
 
 startButton.addEventListener("click", startGame);
 
-// realizamos una variable para almacenar los datos.
-var data = {
-  name: "Gutibel Games",
-  age: 24,
-  email: "gutierrezbellonahuel@gmail.com",
-};
-
 // Convertir los datos en una cadena JSON
 var jsonData = JSON.stringify(data);
 
@@ -168,20 +161,3 @@ const responsePromise = fetch(url, {
   method: "POST",
   body: file,
 });
-
-// Manejar la respuesta
-responsePromise
-  .then((response) => {
-    // La solicitud se ha realizado correctamente
-    console.log("The file was uploaded successfully");
-  })
-  .catch((error) => {
-    // Error en la solicitud
-    console.log(error);
-  });
-
-const fs = require("fs");
-const data = fs.readFileSync("data.json", "utf8");
-const jsonData = JSON.parse(data);
-
-console.log(jsonData);
