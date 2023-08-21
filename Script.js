@@ -1,15 +1,3 @@
-let nombre = prompt("Ingresa tu equipo:");
-console.log("El nombre del equipo:", nombre);
-
-console.log("¡Hola hincha de, " + nombre + "! estas listo para ser expulsado.");
-
-let idolo = prompt("Ingresa tu Idolo del Club:");
-console.log("el idolo es:", idolo);
-
-let ingresa = parseInt(idolo);
-
-alert("¡Hola hincha de, " + nombre + "! Bienvenido.");
-
 const wordContainer = document.getElementById("wordContainer");
 const startButton = document.getElementById("startButton");
 const usedLettersElement = document.getElementById("usedLetters");
@@ -103,7 +91,7 @@ const drawHangMan = () => {
   ctx.canvas.height = 160;
   ctx.scale(20, 20);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#d95d39";
+  ctx.fillStyle = "#5823f1";
   ctx.fillRect(0, 7, 4, 1);
   ctx.fillRect(1, 0, 1, 8);
   ctx.fillRect(2, 0, 3, 1);
@@ -145,19 +133,21 @@ input.addEventListener("change", () => {
   // Obtener el valor de la entrada
   const value = input.value;
 
-  // Crear un nuevo elemento
-  const newElement = document.createElement("div");
-  newElement.textContent = value;
+  // Guardar los datos en el almacenamiento local
+  localStorage.setItem("data", value);
 
-  // Anexar el nuevo elemento al DOM
-  document.body.appendChild(newElement);
+  // Obtener los datos del almacenamiento local
+  const jsonData = localStorage.getItem("data");
+
+  // Convertir la cadena JSON en un objeto JavaScript
+  var data = JSON.parse(jsonData);
+
+  // Imprime los datos
+  console.log(data);
 });
-
-const file = document.querySelector('input[type="file"]');
-const url = "";
-
-// Realizar una solicitud de recuperación con el archivo
-const responsePromise = fetch(url, {
-  method: "POST",
-  body: file,
-});
+fetch(url)
+  .then((response) => response.json())
+  .then((users) => {
+    // Imprime los usuarios
+    console.log(users);
+  });
